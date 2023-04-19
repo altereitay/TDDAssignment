@@ -20,7 +20,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<student> students;
+        private List<Student> students = new List<Student>();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +28,12 @@ namespace WpfApp1
 
         private void showStudents_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach (var student in students)
+            {
+                Console.WriteLine(student);
+            }
+            StudentsGrid.Visibility = Visibility.Visible;
+            StudentsGrid.ItemsSource = students.ToList();
         }
 
         private void addStudent_Click(object sender, RoutedEventArgs e)
@@ -62,7 +67,67 @@ namespace WpfApp1
 
         private void addOne_Click(object sender, RoutedEventArgs e)
         {
+            var fName = FirstName.Text;
+            var lName = LastName.Text;
+            var id = ID.Text;
+            var email = Email.Text;
+            var phone = Phone.Text;
+            int[] grades = new int[5];
+            grades[0] = Int32.Parse(Grade1.Text);
+            grades[1] = Int32.Parse(Grade2.Text);
+            grades[2] = Int32.Parse(Grade3.Text);
+            grades[3] = Int32.Parse(Grade4.Text);
+            grades[4] = Int32.Parse(Grade5.Text);
+            if (id.Length != 9)
+            {
+                Console.WriteLine("id too short");
+            }
+            if (phone.Length != 10) 
+            {
+                Console.WriteLine("id too short");
+            }
+            if (!email.Contains("@"))
+            {
+                Console.WriteLine("email not valid");
+            }
+            var s = new Student(fName, lName, id, email, phone, grades);
+            students.Add(s);
+
+            FirstName.Visibility = Visibility.Hidden;
+            FirstNameLabel.Visibility = Visibility.Hidden;
+            LastName.Visibility = Visibility.Hidden;
+            LastNameLabel.Visibility = Visibility.Hidden;
+            ID.Visibility = Visibility.Hidden;
+            IDLabel.Visibility = Visibility.Hidden;
+            Email.Visibility = Visibility.Hidden;
+            EmailLabel.Visibility = Visibility.Hidden;
+            Phone.Visibility = Visibility.Hidden;
+            PhoneLabel.Visibility = Visibility.Hidden;
+            GradesLabel.Visibility = Visibility.Hidden;
+            Grade1.Visibility = Visibility.Hidden;
+            Grade2.Visibility = Visibility.Hidden;
+            Grade3.Visibility = Visibility.Hidden;
+            Grade4.Visibility = Visibility.Hidden;
+            Grade5.Visibility = Visibility.Hidden;
+            AddOne.Visibility = Visibility.Hidden;
+            ShowStudents.Visibility = Visibility.Visible;
+            AddStudent.Visibility = Visibility.Visible;
+            AddBulk.Visibility = Visibility.Visible;
+
+            /*
+            FirstName.Text = "";
+            LastName.Text = "";
+            ID.Text = "";
+            Email.Text = "";
+            Phone.Text = "";
+            Grade1.Text = "";
+            Grade2.Text = "";
+            Grade3.Text = "";
+            Grade4.Text = "";
+            Grade5.Text = "";
+            */
 
         }
+        
     }
 }
