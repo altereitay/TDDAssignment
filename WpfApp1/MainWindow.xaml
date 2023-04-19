@@ -31,6 +31,6 @@
         <Button x:Name="AddStudent" Content="Add Students" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="155,27,0,0" VerticalAlignment="Top" Click="addStudent_Click"/>
         <Button x:Name="AddBulk" Content="Add 10,000 Students" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="293,27,0,0" VerticalAlignment="Top" Click="addBulk_Click"/>
         <Button x:Name="AddOne" Content="Add" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="31,281,0,0" VerticalAlignment="Top" Click="addOne_Click" Visibility="Hidden"/>
-        <DataGrid x:Name="StudentsGrid" HorizontalAlignment="Center" Margin="0,328,0,0" Width="780" Grid.Column="1" Visibility="Hidden"/>
+        <DataGrid x:Name="StudentsGrid" HorizontalAlignment="Center" Margin="0,328,0,0" Width="780" Grid.Column="1" Visibility="Hidden" />
     </Grid>
 </Window>

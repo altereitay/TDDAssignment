@@ -33,7 +33,7 @@ namespace WpfApp1
                 Console.WriteLine(student);
             }
             StudentsGrid.Visibility = Visibility.Visible;
-            StudentsGrid.ItemsSource = students.ToList();
+            StudentsGrid.ItemsSource = students;
         }
 
         private void addStudent_Click(object sender, RoutedEventArgs e)
