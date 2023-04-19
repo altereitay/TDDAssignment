@@ -37,7 +37,22 @@ namespace WpfApp1
             FirstNameLabel.Visibility = Visibility.Visible;
             LastName.Visibility = Visibility.Visible;
             LastNameLabel.Visibility = Visibility.Visible;
-
+            ID.Visibility = Visibility.Visible;
+            IDLabel.Visibility = Visibility.Visible;
+            Email.Visibility = Visibility.Visible;
+            EmailLabel.Visibility = Visibility.Visible; 
+            Phone.Visibility = Visibility.Visible;
+            PhoneLabel.Visibility = Visibility.Visible;
+            GradesLabel.Visibility = Visibility.Visible;
+            Grade1.Visibility = Visibility.Visible;   
+            Grade2.Visibility = Visibility.Visible;
+            Grade3.Visibility = Visibility.Visible;
+            Grade4.Visibility = Visibility.Visible;
+            Grade5.Visibility = Visibility.Visible;
+            AddOne.Visibility = Visibility.Visible;
+            ShowStudents.Visibility = Visibility.Hidden;
+            AddStudent.Visibility = Visibility.Hidden;
+            AddBulk.Visibility = Visibility.Hidden;
         }
 
         private void addBulk_Click(object sender, RoutedEventArgs e)

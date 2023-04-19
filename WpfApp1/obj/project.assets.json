@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alter\\source\\repos\\WpfApp1\\WpfApp1.csproj",
+      "projectUniqueName": "C:\\Users\\alter\\Desktop\\TDDAssignment\\WpfApp1\\WpfApp1.csproj",
       "projectName": "WpfApp1",
-      "projectPath": "C:\\Users\\alter\\source\\repos\\WpfApp1\\WpfApp1.csproj",
+      "projectPath": "C:\\Users\\alter\\Desktop\\TDDAssignment\\WpfApp1\\WpfApp1.csproj",
       "packagesPath": "C:\\Users\\alter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alter\\source\\repos\\WpfApp1\\obj\\",
+      "outputPath": "C:\\Users\\alter\\Desktop\\TDDAssignment\\WpfApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alter\\AppData\\Roaming\\NuGet\\NuGet.Config",
