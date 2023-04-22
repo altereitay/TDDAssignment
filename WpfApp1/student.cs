@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    class Student
+    public class Student
     {
         public string firstName;
         public string lastName;
@@ -15,6 +15,7 @@ namespace WpfApp1
         public string phone;
         public int[] grades;
         public double avargae;
+        public Student() { }
         public Student (string firstName, string lastName, string ID, string Email, string phone, int[] grades)
         {
             this.firstName = firstName;

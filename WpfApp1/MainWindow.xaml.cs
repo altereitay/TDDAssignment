@@ -26,108 +26,70 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void showStudents_Click(object sender, RoutedEventArgs e)
+        public void AddStudent(Student student)
         {
-            foreach (var student in students)
-            {
-                Console.WriteLine(student);
-            }
-            StudentsGrid.Visibility = Visibility.Visible;
-            StudentsGrid.ItemsSource = students;
+            students.Add(student);
         }
-
+        public List<Student> getStudent()
+        {
+            return students;
+        }
         private void addStudent_Click(object sender, RoutedEventArgs e)
         {
-            FirstName.Visibility = Visibility.Visible;
-            FirstNameLabel.Visibility = Visibility.Visible;
-            LastName.Visibility = Visibility.Visible;
-            LastNameLabel.Visibility = Visibility.Visible;
-            ID.Visibility = Visibility.Visible;
-            IDLabel.Visibility = Visibility.Visible;
-            Email.Visibility = Visibility.Visible;
-            EmailLabel.Visibility = Visibility.Visible; 
-            Phone.Visibility = Visibility.Visible;
-            PhoneLabel.Visibility = Visibility.Visible;
-            GradesLabel.Visibility = Visibility.Visible;
-            Grade1.Visibility = Visibility.Visible;   
-            Grade2.Visibility = Visibility.Visible;
-            Grade3.Visibility = Visibility.Visible;
-            Grade4.Visibility = Visibility.Visible;
-            Grade5.Visibility = Visibility.Visible;
-            AddOne.Visibility = Visibility.Visible;
-            ShowStudents.Visibility = Visibility.Hidden;
-            AddStudent.Visibility = Visibility.Hidden;
-            AddBulk.Visibility = Visibility.Hidden;
+            AddStudent student_page = new AddStudent(this);
+            mainFrame.Content= student_page;
         }
 
-        private void addBulk_Click(object sender, RoutedEventArgs e)
+        private void ShowStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            sortStudents();
+            StudentInfo student_page = new StudentInfo(this);
+            mainFrame.Content = student_page;
         }
 
-        private void addOne_Click(object sender, RoutedEventArgs e)
+        private void AddStudents_Click(object sender, RoutedEventArgs e)
         {
-            var fName = FirstName.Text;
-            var lName = LastName.Text;
-            var id = ID.Text;
-            var email = Email.Text;
-            var phone = Phone.Text;
-            int[] grades = new int[5];
-            grades[0] = Int32.Parse(Grade1.Text);
-            grades[1] = Int32.Parse(Grade2.Text);
-            grades[2] = Int32.Parse(Grade3.Text);
-            grades[3] = Int32.Parse(Grade4.Text);
-            grades[4] = Int32.Parse(Grade5.Text);
-            if (id.Length != 9)
-            {
-                Console.WriteLine("id too short");
-            }
-            if (phone.Length != 10) 
-            {
-                Console.WriteLine("id too short");
-            }
-            if (!email.Contains("@"))
-            {
-                Console.WriteLine("email not valid");
-            }
-            var s = new Student(fName, lName, id, email, phone, grades);
-            students.Add(s);
+         
 
-            FirstName.Visibility = Visibility.Hidden;
-            FirstNameLabel.Visibility = Visibility.Hidden;
-            LastName.Visibility = Visibility.Hidden;
-            LastNameLabel.Visibility = Visibility.Hidden;
-            ID.Visibility = Visibility.Hidden;
-            IDLabel.Visibility = Visibility.Hidden;
-            Email.Visibility = Visibility.Hidden;
-            EmailLabel.Visibility = Visibility.Hidden;
-            Phone.Visibility = Visibility.Hidden;
-            PhoneLabel.Visibility = Visibility.Hidden;
-            GradesLabel.Visibility = Visibility.Hidden;
-            Grade1.Visibility = Visibility.Hidden;
-            Grade2.Visibility = Visibility.Hidden;
-            Grade3.Visibility = Visibility.Hidden;
-            Grade4.Visibility = Visibility.Hidden;
-            Grade5.Visibility = Visibility.Hidden;
-            AddOne.Visibility = Visibility.Hidden;
-            ShowStudents.Visibility = Visibility.Visible;
-            AddStudent.Visibility = Visibility.Visible;
-            AddBulk.Visibility = Visibility.Visible;
+            string[] firstNames = { "Adam", "Ben", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Isaac", "Julia", "Kevin", "Lena", "Mike", "Nora", "Olivia", "Peter", "Quinn", "Rachel", "Sarah", "Tom", "Ursula", "Victoria", "Walter", "Xander", "Yara", "Zoe" };
+            string[] lastNames = { "Anderson", "Brown", "Clark", "Davis", "Evans", "Foster", "Garcia", "Hernandez", "Ibrahim", "Jones", "Kim", "Lopez", "Martinez", "Nguyen", "O'Connor", "Parker", "Quinn", "Robinson", "Smith", "Thompson", "Underwood", "Vargas", "Walker", "Xu", "Young", "Zhang" };
+            string[] domains = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com" };
+            Random rnd = new Random();
 
-            /*
-            FirstName.Text = "";
-            LastName.Text = "";
-            ID.Text = "";
-            Email.Text = "";
-            Phone.Text = "";
-            Grade1.Text = "";
-            Grade2.Text = "";
-            Grade3.Text = "";
-            Grade4.Text = "";
-            Grade5.Text = "";
-            */
-
+            for (int i = 0; i < 10000; i++)
+            {
+                Student student = new Student();
+                student.firstName = firstNames[rnd.Next(firstNames.Length)];
+                student.lastName = lastNames[rnd.Next(lastNames.Length)];
+                student.ID = rnd.Next(1000000, 10000000).ToString();
+                student.Email = student.firstName.ToLower() + "." + student.lastName.ToLower() + "@" + domains[rnd.Next(domains.Length)];
+                student.phone = rnd.Next(1000000, 10000000).ToString();
+                student.grades = new int[5];
+                for (int j = 0; j < 5; j++)
+                {
+                    student.grades[j] = rnd.Next(0, 101);
+                }
+                student.avargae = student.grades.Average();
+                students.Add(student);
+            }
+            StudentControl student_page = new StudentControl(this);
+            mainFrame.Content = student_page;
         }
-        
+        public void sortStudents()
+        {
+            for(int i=0; i<students.Count; i++)
+            {
+                for (int j=i+1;j< students.Count;j++)
+                {
+                    Student temp;
+                    if (students[j].avargae > students[i].avargae)
+                    {
+                        temp= students[j];
+                        students[j]= students[i];
+                        students[i]= temp;
+                    }
+                }
+            }
+        }
     }
 }
