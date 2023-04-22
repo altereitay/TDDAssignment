@@ -43,10 +43,16 @@ namespace WpfApp1
             grades[2] = String.IsNullOrEmpty(Grade3.Text) ? 777 : Int32.Parse(Grade3.Text);
             grades[3] = String.IsNullOrEmpty(Grade4.Text) ? 777 : Int32.Parse(Grade4.Text);
             grades[4] = String.IsNullOrEmpty(Grade5.Text) ? 777 : Int32.Parse(Grade5.Text);
-
-            if (phone.Length != 10)
+            
+            if(!Regex.IsMatch(id,@"^[0-9]{9}$"))
             {
-                MessageBox.Show("phone too short");
+                MessageBox.Show("Id need to be 9 chars ");
+                return;
+            }
+
+            if (!Regex.IsMatch(phone, @"^[0-9]{10}$"))
+            {
+                MessageBox.Show("phone need to be 10 chars ");
                 return;
             }
 
