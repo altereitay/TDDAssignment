@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\alter\source\repos\WpfApp1\obj\Debug\net6.0-windows\
+C:\Users\niron\Desktop\TDDAssignment\WpfApp1\obj\Debug\net6.0-windows\
 WpfApp1
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\alter\source\repos\WpfApp1\App.xaml
-11407045341
+C:\Users\niron\Desktop\TDDAssignment\WpfApp1\App.xaml
+41530073561
 
-4-1060278548
+8-570578909
 194-1617825143
-MainWindow.xaml;
+AddStudent.xaml;MainWindow.xaml;StudentControl.xaml;StudentInfo.xaml;
 
 False
 
