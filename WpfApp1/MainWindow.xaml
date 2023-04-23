@@ -285,7 +285,7 @@
                 </TextBlock>
 
                 <!--add an exit button-->
-         
+
 
             </Grid>
 
@@ -311,6 +311,17 @@
 
 
             </Popup>
+            <Button Height="40"
+                        Width="40"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="0,20,42,0" Style="{StaticResource ExitButtonStyle}" Click="Button_Click" RenderTransformOrigin="0.165,-7.957">
+
+            </Button>
+
+
 
         </Grid>
     </Grid>

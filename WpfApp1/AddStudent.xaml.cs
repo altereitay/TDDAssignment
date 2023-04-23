@@ -39,36 +39,76 @@ namespace WpfApp1
             var phone = Phone.Text;
             int[] grades = new int[5];
             int tempGrade;
-            if (!int.TryParse(Grade1.Text, out tempGrade))
+
+            if (string.IsNullOrEmpty(Grade1.Text))
+            {
+                grades[0] = 777;
+            }
+            else if (!int.TryParse(Grade1.Text, out tempGrade))
             {
                 MessageBox.Show("grades should only contain numbers");
                 return;
             }
-            grades[0] = tempGrade;
-            if (!int.TryParse(Grade2.Text, out tempGrade))
+            else
+            {
+                grades[0] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade2.Text))
+            {
+                grades[1] = 777;
+            }
+            else if (!int.TryParse(Grade2.Text, out tempGrade))
             {
                 MessageBox.Show("grades should only contain numbers");
                 return;
             }
-            grades[1] = tempGrade;
-            if (!int.TryParse(Grade3.Text, out tempGrade))
+            else
+            {
+                grades[1] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade3.Text))
+            {
+                grades[2] = 777;
+            }
+            else if (!int.TryParse(Grade3.Text, out tempGrade))
             {
                 MessageBox.Show("grades should only contain numbers");
                 return;
             }
-            grades[2] = tempGrade;
-            if (!int.TryParse(Grade4.Text, out tempGrade))
+            else
+            {
+                grades[2] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade4.Text))
+            {
+                grades[3] = 777;
+            }
+            else if (!int.TryParse(Grade4.Text, out tempGrade))
             {
                 MessageBox.Show("grades should only contain numbers");
                 return;
             }
-            grades[3] = tempGrade;
-            if (!int.TryParse(Grade5.Text, out tempGrade))
+            else
+            {
+                grades[3] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade5.Text))
+            {
+                grades[4] = 777;
+            }
+            else if (!int.TryParse(Grade5.Text, out tempGrade))
             {
                 MessageBox.Show("grades should only contain numbers");
                 return;
             }
-            grades[4] = tempGrade;
+            else
+            {
+                grades[4] = tempGrade;
+            }
 
             if (!Regex.IsMatch(id,@"^[0-9]{9}$"))
             {
