@@ -38,21 +38,87 @@ namespace WpfApp1
             var email = Email.Text;
             var phone = Phone.Text;
             int[] grades = new int[5];
-            grades[0] = String.IsNullOrEmpty(Grade1.Text) ? 777 : Int32.Parse(Grade1.Text);
-            grades[1] = String.IsNullOrEmpty(Grade2.Text) ? 777 : Int32.Parse(Grade2.Text);
-            grades[2] = String.IsNullOrEmpty(Grade3.Text) ? 777 : Int32.Parse(Grade3.Text);
-            grades[3] = String.IsNullOrEmpty(Grade4.Text) ? 777 : Int32.Parse(Grade4.Text);
-            grades[4] = String.IsNullOrEmpty(Grade5.Text) ? 777 : Int32.Parse(Grade5.Text);
-            
-            if(!Regex.IsMatch(id,@"^[0-9]{9}$"))
+            int tempGrade;
+
+            if (string.IsNullOrEmpty(Grade1.Text))
             {
-                MessageBox.Show("Id need to be 9 chars ");
+                grades[0] = 777;
+            }
+            else if (!int.TryParse(Grade1.Text, out tempGrade))
+            {
+                MessageBox.Show("grades should only contain numbers");
+                return;
+            }
+            else
+            {
+                grades[0] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade2.Text))
+            {
+                grades[1] = 777;
+            }
+            else if (!int.TryParse(Grade2.Text, out tempGrade))
+            {
+                MessageBox.Show("grades should only contain numbers");
+                return;
+            }
+            else
+            {
+                grades[1] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade3.Text))
+            {
+                grades[2] = 777;
+            }
+            else if (!int.TryParse(Grade3.Text, out tempGrade))
+            {
+                MessageBox.Show("grades should only contain numbers");
+                return;
+            }
+            else
+            {
+                grades[2] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade4.Text))
+            {
+                grades[3] = 777;
+            }
+            else if (!int.TryParse(Grade4.Text, out tempGrade))
+            {
+                MessageBox.Show("grades should only contain numbers");
+                return;
+            }
+            else
+            {
+                grades[3] = tempGrade;
+            }
+
+            if (string.IsNullOrEmpty(Grade5.Text))
+            {
+                grades[4] = 777;
+            }
+            else if (!int.TryParse(Grade5.Text, out tempGrade))
+            {
+                MessageBox.Show("grades should only contain numbers");
+                return;
+            }
+            else
+            {
+                grades[4] = tempGrade;
+            }
+
+            if (!Regex.IsMatch(id,@"^[0-9]{9}$"))
+            {
+                MessageBox.Show("Id need to be 9 chars and only numbers ");
                 return;
             }
 
             if (!Regex.IsMatch(phone, @"^[0-9]{10}$"))
             {
-                MessageBox.Show("phone need to be 10 chars ");
+                MessageBox.Show("phone need to be 10 chars and only numbers ");
                 return;
             }
 
@@ -74,14 +140,7 @@ namespace WpfApp1
                 return;
             }
 
-            foreach (var grade in grades)
-            {
-                if (!Regex.IsMatch(grade.ToString(), @"^[0-9]+$"))
-                {
-                    MessageBox.Show("grades should only contain numbers");
-                    return;
-                }
-            }
+       
 
             var s = new Student(fName, lName, id, email, phone, grades);
             temp.AddStudent(s);
