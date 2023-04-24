@@ -23,6 +23,7 @@ namespace WpfApp1
     {
 
         private MainWindow temp;
+        HashSet<String> studentIds = new HashSet<string>();
         public AddStudent(MainWindow m1)
         {
 
@@ -164,9 +165,12 @@ namespace WpfApp1
                 MessageBox.Show("last name should only contain letters");
                 return;
             }
-
-       
-
+            studentIds = new HashSet<String>(temp.getStudentNames());
+            if (studentIds.Contains(id))
+            {
+                MessageBox.Show("The id already exists");
+                return;
+            }
             var s = new Student(fName, lName, id, email, phone, grades);
             temp.AddStudent(s);
             StudentControl student_page = new StudentControl(temp);
