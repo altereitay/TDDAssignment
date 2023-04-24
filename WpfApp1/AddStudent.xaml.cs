@@ -51,6 +51,11 @@ namespace WpfApp1
             }
             else
             {
+                if (tempGrade < 0 || tempGrade > 100)
+                {
+                    MessageBox.Show("grades should be between 0-100");
+                    return;
+                }
                 grades[0] = tempGrade;
             }
 
@@ -64,7 +69,12 @@ namespace WpfApp1
                 return;
             }
             else
-            {
+            {   
+                if(tempGrade < 0 || tempGrade>100) 
+                {
+                    MessageBox.Show("grades should be between 0-100");
+                    return;
+                }
                 grades[1] = tempGrade;
             }
 
@@ -79,6 +89,11 @@ namespace WpfApp1
             }
             else
             {
+                if (tempGrade < 0 || tempGrade > 100)
+                {
+                    MessageBox.Show("grades should be between 0-100");
+                    return;
+                }
                 grades[2] = tempGrade;
             }
 
@@ -93,6 +108,11 @@ namespace WpfApp1
             }
             else
             {
+                if (tempGrade < 0 || tempGrade > 100)
+                {
+                    MessageBox.Show("grades should be between 0-100");
+                    return;
+                }
                 grades[3] = tempGrade;
             }
 
@@ -107,6 +127,11 @@ namespace WpfApp1
             }
             else
             {
+                if (tempGrade < 0 || tempGrade > 100)
+                {
+                    MessageBox.Show("grades should be between 0-100");
+                    return;
+                }
                 grades[4] = tempGrade;
             }
 

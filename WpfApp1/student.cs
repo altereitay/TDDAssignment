@@ -24,16 +24,23 @@ namespace WpfApp1
             this.Email = Email;
             this.phone = phone;
             this.grades = grades;
+            this.avargae = getavg(grades);
+       
+        }
+        public double getavg(int[] grades)
+        {
             int count = 0;
+            double sum = 0;
             for (int i = 0; i < grades.Length; i++)
             {
                 if (grades[i] != 777)
                 {
                     count++;
-                    this.avargae += grades[i];
+                    sum += grades[i];
                 }
             }
-            this.avargae /= count;
+            return sum / count;
+
         }
     }
 }
