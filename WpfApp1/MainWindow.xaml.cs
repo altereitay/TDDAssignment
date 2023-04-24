@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         private List<Student> students = new List<Student>();
+         List<String> studentNames = new List<String>();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -29,11 +32,14 @@ namespace WpfApp1
         public void AddStudent(Student student)
         {
             students.Add(student);
+            studentNames.Add(student.ID);
         }
         public List<Student> getStudent()
         {
             return students;
         }
+
+        public List<String> getStudentNames() {  return studentNames; }
         private void addStudent_Click(object sender, RoutedEventArgs e)
         {
             AddStudent student_page = new AddStudent(this);
@@ -42,7 +48,12 @@ namespace WpfApp1
 
         private void ShowStudent_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch stopsort=new Stopwatch();
+            stopsort.Start();
             students =sortStudents(students);
+            stopsort.Stop();
+            TimeSpan elapsesTime =stopsort.Elapsed;
+            MessageBox.Show("Sorting took = " + elapsesTime.TotalSeconds + "seconds");
             StudentInfo student_page = new StudentInfo(this);
             mainFrame.Content = student_page;
         }
@@ -61,7 +72,7 @@ namespace WpfApp1
                 Student student = new Student();
                 student.firstName = firstNames[rnd.Next(firstNames.Length)];
                 student.lastName = lastNames[rnd.Next(lastNames.Length)];
-                student.ID = rnd.Next(100000000, 1000000000).ToString();
+                student.ID = rnd.NextInt64(100000000, 1000000000).ToString();
                 student.Email = student.firstName.ToLower() + "." + student.lastName.ToLower() + "@" + domains[rnd.Next(domains.Length)];
                 student.phone = rnd.Next(1000000, 10000000).ToString();
                 student.grades = new int[5];
