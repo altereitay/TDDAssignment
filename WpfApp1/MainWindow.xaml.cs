@@ -61,7 +61,7 @@ namespace WpfApp1
                 Student student = new Student();
                 student.firstName = firstNames[rnd.Next(firstNames.Length)];
                 student.lastName = lastNames[rnd.Next(lastNames.Length)];
-                student.ID = rnd.Next(1000000, 10000000).ToString();
+                student.ID = rnd.Next(100000000, 1000000000).ToString();
                 student.Email = student.firstName.ToLower() + "." + student.lastName.ToLower() + "@" + domains[rnd.Next(domains.Length)];
                 student.phone = rnd.Next(1000000, 10000000).ToString();
                 student.grades = new int[5];
@@ -75,6 +75,25 @@ namespace WpfApp1
             StudentControl student_page = new StudentControl(this);
             mainFrame.Content = student_page;
         }
+
+        /* 
+       public void sortStudents()
+       {
+           for(int i=0; i<students.Count; i++)
+           {
+               for (int j=i+1;j< students.Count;j++)
+               {
+                   Student temp;
+                   if (students[j].avargae > students[i].avargae)
+                   {
+                       temp= students[j];
+                       students[j]= students[i];
+                       students[i]= temp;
+                   }
+               }
+           }
+       }
+       */
         public List<Student> sortStudents(List<Student> students)
         {
 
