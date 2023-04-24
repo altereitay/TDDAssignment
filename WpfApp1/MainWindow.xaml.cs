@@ -42,7 +42,7 @@ namespace WpfApp1
 
         private void ShowStudent_Click(object sender, RoutedEventArgs e)
         {
-            sortStudents();
+            students =sortStudents(students);
             StudentInfo student_page = new StudentInfo(this);
             mainFrame.Content = student_page;
         }
@@ -75,21 +75,64 @@ namespace WpfApp1
             StudentControl student_page = new StudentControl(this);
             mainFrame.Content = student_page;
         }
-        public void sortStudents()
+        public List<Student> sortStudents(List<Student> students)
         {
-            for(int i=0; i<students.Count; i++)
+
+            if (students.Count <= 1)
             {
-                for (int j=i+1;j< students.Count;j++)
+                return students;
+            }
+
+            int middleIndex = students.Count / 2;
+            List<Student> left = new List<Student>();
+            List<Student> right = new List<Student>();
+
+            for (int i = 0; i < middleIndex; i++)
+            {
+                left.Add(students[i]);
+            }
+            for (int i = middleIndex; i < students.Count; i++)
+            {
+                right.Add(students[i]);
+            }
+
+            left = sortStudents(left);
+            right = sortStudents(right);
+
+            return Merge(left, right);
+        }
+
+        private List<Student> Merge(List<Student> left, List<Student> right)
+        {
+            List<Student> result = new List<Student>();
+
+            while (left.Count > 0 && right.Count > 0)
+            {
+                if (left[0].avargae > right[0].avargae)
                 {
-                    Student temp;
-                    if (students[j].avargae > students[i].avargae)
-                    {
-                        temp= students[j];
-                        students[j]= students[i];
-                        students[i]= temp;
-                    }
+                    result.Add(left[0]);
+                    left.RemoveAt(0);
+                }
+                else
+                {
+                    result.Add(right[0]);
+                    right.RemoveAt(0);
                 }
             }
+
+            while (left.Count > 0)
+            {
+                result.Add(left[0]);
+                left.RemoveAt(0);
+            }
+
+            while (right.Count > 0)
+            {
+                result.Add(right[0]);
+                right.RemoveAt(0);
+            }
+
+            return result;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
