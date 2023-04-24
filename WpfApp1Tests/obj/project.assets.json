@@ -6791,19 +6791,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\niron\\.nuget\\packages\\": {}
+    "C:\\Users\\gofma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\niron\\Desktop\\TDDAssignment\\WpfApp1Tests\\WpfApp1Tests.csproj",
+      "projectUniqueName": "C:\\Users\\gofma\\OneDrive\\שולחן העבודה\\TDDAssignment\\WpfApp1Tests\\WpfApp1Tests.csproj",
       "projectName": "WpfApp1Tests",
-      "projectPath": "C:\\Users\\niron\\Desktop\\TDDAssignment\\WpfApp1Tests\\WpfApp1Tests.csproj",
-      "packagesPath": "C:\\Users\\niron\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\niron\\Desktop\\TDDAssignment\\WpfApp1Tests\\obj\\",
+      "projectPath": "C:\\Users\\gofma\\OneDrive\\שולחן העבודה\\TDDAssignment\\WpfApp1Tests\\WpfApp1Tests.csproj",
+      "packagesPath": "C:\\Users\\gofma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gofma\\OneDrive\\שולחן העבודה\\TDDAssignment\\WpfApp1Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\niron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gofma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6817,8 +6817,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\niron\\Desktop\\TDDAssignment\\WpfApp1\\WpfApp1.csproj": {
-              "projectPath": "C:\\Users\\niron\\Desktop\\TDDAssignment\\WpfApp1\\WpfApp1.csproj"
+            "C:\\Users\\gofma\\OneDrive\\שולחן העבודה\\TDDAssignment\\WpfApp1\\WpfApp1.csproj": {
+              "projectPath": "C:\\Users\\gofma\\OneDrive\\שולחן העבודה\\TDDAssignment\\WpfApp1\\WpfApp1.csproj"
             }
           }
         }

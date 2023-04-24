@@ -299,7 +299,7 @@
                   VerticalAlignment="Center"
                   HorizontalAlignment="Left"
                   Height="590" Width="1230" Margin="130,0,0,0"
-                  >
+                  NavigationUIVisibility="Hidden">
 
             </Frame>
 
