@@ -82,6 +82,7 @@ namespace WpfApp1
                 }
                 student.avargae = student.grades.Average();
                 students.Add(student);
+                studentNames.Add(student.ID);
             }
             StudentControl student_page = new StudentControl(this);
             mainFrame.Content = student_page;
